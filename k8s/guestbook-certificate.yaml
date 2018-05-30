@@ -1,0 +1,17 @@
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: guestbook-julienglotain-fr
+  namespace: guestbook
+spec:
+  secretName: guestbook.julienglotain.fr-tls
+  issuerRef:
+    name: letsencrypt-issuer
+    kind: ClusterIssuer
+  commonName: guestbook.julienglotain.fr
+  acme:
+    config:
+    - http01: {}
+      domains:
+      - guestbook.julienglotain.fr
